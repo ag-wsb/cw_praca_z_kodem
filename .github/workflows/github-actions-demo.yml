@@ -4,8 +4,6 @@ jobs:
   wersja-docker-python:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3	
       - run: python --version
       - run: docker -v
   pylint-tester:
