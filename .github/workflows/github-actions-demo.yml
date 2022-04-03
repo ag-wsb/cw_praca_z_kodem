@@ -6,7 +6,7 @@ jobs:
     steps:
       - run: python --version
       - run: docker -v
-      - run: pip install docker
+
 
   pylint-tester:
     runs-on: ubuntu-latest
@@ -19,5 +19,8 @@ jobs:
   uruchom-docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: pip install docker
       - run: docker build --tag test-flask-app .
       - run: docker run -d -p 5000:5000 test-flask-app 
