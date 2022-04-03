@@ -9,7 +9,9 @@ jobs:
   pylint-tester:
     runs-on: ubuntu-latest
     steps:
-      - run: pip install pylint
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: pip install pylint        
       - run: pylint app.py
   uruchom-docker:
     runs-on: ubuntu-latest
