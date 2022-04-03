@@ -6,3 +6,6 @@ jobs:
     steps:
       - run: python --version
       - run: docker version
+      - run: pylint app.py
+      - run: docker build --tag test-flask-app .
+      - run: docker run -d -p 5000:5000 test-flask-app
