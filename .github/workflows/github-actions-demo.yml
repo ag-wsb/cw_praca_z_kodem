@@ -6,6 +6,7 @@ jobs:
     steps:
       - run: python --version
       - run: docker -v
+      - run: pip install docker
   pylint-tester:
     runs-on: ubuntu-latest
     steps:
