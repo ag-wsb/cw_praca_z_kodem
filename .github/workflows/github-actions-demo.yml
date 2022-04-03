@@ -7,11 +7,14 @@ jobs:
       - run: python --version
       - run: docker -v
       - run: pip install docker
-      - run: pip install pylint
+
   pylint-tester:
     runs-on: ubuntu-latest
     steps:    
-      - run: find . -name '*.py' -exec pylint {} \;
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: pip install flask
+      - run: pip install pylint
       - run: pylint app.py
   uruchom-docker:
     runs-on: ubuntu-latest
